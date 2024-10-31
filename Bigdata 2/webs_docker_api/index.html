@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Prédiction de Champignons</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Prédiction de Champignons</h1>
+		
+        <form id="prediction-form">
+            <div class="form-group">
+        <label class="orange-label">Forme du chapeau:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="cap-shape_encoded" value="0" required> Bell</label>
+            <label><input type="radio" name="cap-shape_encoded" value="1"> Conical</label>
+            <label><input type="radio" name="cap-shape_encoded" value="2"> Convex</label>
+            <label><input type="radio" name="cap-shape_encoded" value="3"> Flat</label>
+            <label><input type="radio" name="cap-shape_encoded" value="4"> Knobbed</label>
+            <label><input type="radio" name="cap-shape_encoded" value="5"> Sunken</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="orange-label">Surface du chapeau:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="cap-surface_encoded" value="0" required> Fibrous</label>
+            <label><input type="radio" name="cap-surface_encoded" value="1"> Grooves</label>
+            <label><input type="radio" name="cap-surface_encoded" value="2"> Scaly</label>
+            <label><input type="radio" name="cap-surface_encoded" value="3"> Smooth</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="orange-label">Couleur du chapeau:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="cap-color_encoded" value="0" required> Brown</label>
+            <label><input type="radio" name="cap-color_encoded" value="1"> Buff</label>
+            <label><input type="radio" name="cap-color_encoded" value="2"> Cinnamon</label>
+            <label><input type="radio" name="cap-color_encoded" value="3"> Gray</label>
+            <label><input type="radio" name="cap-color_encoded" value="4"> Green</label>
+            <label><input type="radio" name="cap-color_encoded" value="5"> Pink</label>
+            <label><input type="radio" name="cap-color_encoded" value="6"> Purple</label>
+            <label><input type="radio" name="cap-color_encoded" value="7"> Red</label>
+            <label><input type="radio" name="cap-color_encoded" value="8"> White</label>
+            <label><input type="radio" name="cap-color_encoded" value="9"> Yellow</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="orange-label">Nombre de lamelles:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="gill-count_encoded" value="0" required> Absent</label>
+            <label><input type="radio" name="gill-count_encoded" value="1"> Une</label>
+            <label><input type="radio" name="gill-count_encoded" value="2"> Deux</label>
+            <label><input type="radio" name="gill-count_encoded" value="3"> Trois</label>
+            <label><input type="radio" name="gill-count_encoded" value="4"> Quatre</label>
+            <label><input type="radio" name="gill-count_encoded" value="5"> Cinq ou plus</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="orange-label">Bruises:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="bruises_encoded" value="0" required> Non</label>
+            <label><input type="radio" name="bruises_encoded" value="1"> Oui</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="orange-label">Odeur:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="odor_encoded" value="0" required> Amande</label>
+            <label><input type="radio" name="odor_encoded" value="1"> Anis</label>
+            <label><input type="radio" name="odor_encoded" value="2"> Crésote</label>
+            <label><input type="radio" name="odor_encoded" value="3"> Poisson</label>
+            <label><input type="radio" name="odor_encoded" value="4"> Mauvaise</label>
+            <label><input type="radio" name="odor_encoded" value="5"> Moisi</label>
+            <label><input type="radio" name="odor_encoded" value="6"> Aucun</label>
+            <label><input type="radio" name="odor_encoded" value="7"> Piquant</label>
+            <label><input type="radio" name="odor_encoded" value="8"> Épicé</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="orange-label">Attachement des lamelles:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="gill-attachment_encoded" value="0" required> Attaché</label>
+            <label><input type="radio" name="gill-attachment_encoded" value="1"> Descendant</label>
+            <label><input type="radio" name="gill-attachment_encoded" value="2"> Libre</label>
+            <label><input type="radio" name="gill-attachment_encoded" value="3"> Noté</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="orange-label">Espacement des lamelles:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="gill-spacing_encoded" value="0" required> Proche</label>
+            <label><input type="radio" name="gill-spacing_encoded" value="1"> Entassé</label>
+            <label><input type="radio" name="gill-spacing_encoded" value="2"> Loin</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="orange-label">Taille des lamelles:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="gill-size_encoded" value="0" required> Large</label>
+            <label><input type="radio" name="gill-size_encoded" value="1"> Étroit</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="orange-label">Couleur des lamelles:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="gill-color_encoded" value="0" required> Noir</label>
+            <label><input type="radio" name="gill-color_encoded" value="1"> Marron</label>
+            <label><input type="radio" name="gill-color_encoded" value="2"> Buff</label>
+            <label><input type="radio" name="gill-color_encoded" value="3"> Chocolat</label>
+            <label><input type="radio" name="gill-color_encoded" value="4"> Gris</label>
+            <label><input type="radio" name="gill-color_encoded" value="5"> Vert</label>
+            <label><input type="radio" name="gill-color_encoded" value="6"> Orange</label>
+            <label><input type="radio" name="gill-color_encoded" value="7"> Rose</label>
+            <label><input type="radio" name="gill-color_encoded" value="8"> Violet</label>
+            <label><input type="radio" name="gill-color_encoded" value="9"> Rouge</label>
+            <label><input type="radio" name="gill-color_encoded" value="10"> Blanc</label>
+            <label><input type="radio" name="gill-color_encoded" value="11"> Jaune</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="orange-label">Forme du pied:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="stalk-shape_encoded" value="0" required> Élargissant</label>
+            <label><input type="radio" name="stalk-shape_encoded" value="1"> Effilé</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="orange-label">Racine du pied:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="stalk-root_encoded" value="0" required> Aucune</label>
+            <label><input type="radio" name="stalk-root_encoded" value="1"> Boule</label>
+            <label><input type="radio" name="stalk-root_encoded" value="2"> Réticulé</label>
+            <label><input type="radio" name="stalk-root_encoded" value="3"> Étoile</label>
+            <label><input type="radio" name="stalk-root_encoded" value="4"> Autre</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="orange-label">Surface au-dessus de l'anneau:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="stalk-surface-above-ring_encoded" value="0" required> Fibreuse</label>
+            <label><input type="radio" name="stalk-surface-above-ring_encoded" value="1"> Lisse</label>
+            <label><input type="radio" name="stalk-surface-above-ring_encoded" value="2"> Écaillée</label>
+            <label><input type="radio" name="stalk-surface-above-ring_encoded" value="3"> Verdâtre</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="orange-label">Surface en dessous de l'anneau:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="stalk-surface-below-ring_encoded" value="0" required> Fibreuse</label>
+            <label><input type="radio" name="stalk-surface-below-ring_encoded" value="1"> Lisse</label>
+            <label><input type="radio" name="stalk-surface-below-ring_encoded" value="2"> Écaillée</label>
+            <label><input type="radio" name="stalk-surface-below-ring_encoded" value="3"> Verdâtre</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="orange-label">Couleur au-dessus de l'anneau:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="stalk-color-above-ring_encoded" value="0" required> Brun</label>
+            <label><input type="radio" name="stalk-color-above-ring_encoded" value="1"> Buff</label>
+            <label><input type="radio" name="stalk-color-above-ring_encoded" value="2"> Châtain</label>
+            <label><input type="radio" name="stalk-color-above-ring_encoded" value="3"> Gris</label>
+            <label><input type="radio" name="stalk-color-above-ring_encoded" value="4"> Vert</label>
+            <label><input type="radio" name="stalk-color-above-ring_encoded" value="5"> Jaune</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="orange-label">Couleur en dessous de l'anneau:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="stalk-color-below-ring_encoded" value="0" required> Brun</label>
+            <label><input type="radio" name="stalk-color-below-ring_encoded" value="1"> Buff</label>
+            <label><input type="radio" name="stalk-color-below-ring_encoded" value="2"> Châtain</label>
+            <label><input type="radio" name="stalk-color-below-ring_encoded" value="3"> Gris</label>
+            <label><input type="radio" name="stalk-color-below-ring_encoded" value="4"> Vert</label>
+            <label><input type="radio" name="stalk-color-below-ring_encoded" value="5"> Jaune</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="orange-label">Type de voile:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="veil-type_encoded" value="0" required> Complet</label>
+            <label><input type="radio" name="veil-type_encoded" value="1"> Partiel</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="orange-label">Couleur du voile:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="veil-color_encoded" value="0" required> Blanc</label>
+            <label><input type="radio" name="veil-color_encoded" value="1"> Jaune</label>
+            <label><input type="radio" name="veil-color_encoded" value="2"> Brun</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="orange-label">Texture du voile:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="veil-texture_encoded" value="0" required> Lisse</label>
+            <label><input type="radio" name="veil-texture_encoded" value="1"> Écailleux</label>
+            <label><input type="radio" name="veil-texture_encoded" value="2"> Verdâtre</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="orange-label">Type d'anneau:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="ring-type_encoded" value="0" required> Aucune</label>
+            <label><input type="radio" name="ring-type_encoded" value="1"> Cobwebby</label>
+            <label><input type="radio" name="ring-type_encoded" value="2"> Évanescent</label>
+            <label><input type="radio" name="ring-type_encoded" value="3"> Évasé</label>
+            <label><input type="radio" name="ring-type_encoded" value="4"> Large</label>
+            <label><input type="radio" name="ring-type_encoded" value="5"> Petit</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="orange-label">Couleur d'impression de spores:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="spore-print-color_encoded" value="0" required> Noir</label>
+            <label><input type="radio" name="spore-print-color_encoded" value="1"> Marron</label>
+            <label><input type="radio" name="spore-print-color_encoded" value="2"> Buff</label>
+            <label><input type="radio" name="spore-print-color_encoded" value="3"> Chocolat</label>
+            <label><input type="radio" name="spore-print-color_encoded" value="4"> Vert</label>
+            <label><input type="radio" name="spore-print-color_encoded" value="5"> Orange</label>
+            <label><input type="radio" name="spore-print-color_encoded" value="6"> Violet</label>
+            <label><input type="radio" name="spore-print-color_encoded" value="7"> Rouge</label>
+            <label><input type="radio" name="spore-print-color_encoded" value="8"> Blanc</label>
+            <label><input type="radio" name="spore-print-color_encoded" value="9"> Jaune</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="orange-label">Population:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="population_encoded" value="0" required> Abondant</label>
+            <label><input type="radio" name="population_encoded" value="1"> En grappes</label>
+            <label><input type="radio" name="population_encoded" value="2"> Nombreux</label>
+            <label><input type="radio" name="population_encoded" value="3"> Éparpillé</label>
+        </div>
+    </div>
+	
+<div class="form-group">
+    <label class="orange-label">Nombre d'anneaux:</label>
+    <div class="radio-group">
+        <label><input type="radio" name="ring-number_encoded" value="0" required> Aucune</label>
+        <label><input type="radio" name="ring-number_encoded" value="1"> Un</label>
+        <label><input type="radio" name="ring-number_encoded" value="2"> Deux</label>
+        <label><input type="radio" name="ring-number_encoded" value="3"> Trois</label>
+        <label><input type="radio" name="ring-number_encoded" value="4"> Quatre</label>
+        <label><input type="radio" name="ring-number_encoded" value="5"> Cinq ou plus</label>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="orange-label">Habitat:</label>
+    <div class="radio-group">
+        <label><input type="radio" name="habitat_encoded" value="0" required> Herbe</label>
+        <label><input type="radio" name="habitat_encoded" value="1"> Feuilles</label>
+        <label><input type="radio" name="habitat_encoded" value="2"> Prairies</label>
+        <label><input type="radio" name="habitat_encoded" value="3"> Chemins</label>
+        <label><input type="radio" name="habitat_encoded" value="4"> Urbain</label>
+        <label><input type="radio" name="habitat_encoded" value="5"> Déchets</label>
+        <label><input type="radio" name="habitat_encoded" value="6"> Bois</label>
+    </div>
+</div>
+
+
+
+    <button type="button" id="randomize-button">Randomiser</button>
+	<button type="submit" class="btn">Prédire</button>
+        </form>
+        
+        <div id="result" class="result"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

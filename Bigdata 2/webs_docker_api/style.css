@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: black; /* Fond noir */
+    color: white; /* Texte en blanc */
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: #333; /* Fond gris foncé pour la zone de contenu */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1); /* Ombre blanche subtile */
+}
+
+h1 {
+    text-align: center;
+    color: white; /* Titre en blanc */
+    font-size: 2em; /* Agrandissement du titre */
+}
+
+.form-group {
+    margin-bottom: 20px;
+    padding: 15px; /* Ajout de padding à l'intérieur des encadrés */
+    border: 2px solid orange; /* Bordure orange */
+    border-radius: 5px; /* Coins arrondis */
+    background-color: #444; /* Fond gris foncé pour les encadrés */
+}
+
+.orange-label {
+    color: orange; /* Couleur orange pour les catégories */
+    font-weight: bold;
+    margin-bottom: 20px; /* Espace entre la catégorie et les boutons (double espace) */
+    font-size: 1.5em; /* Agrandir la taille du texte des catégories */
+}
+
+.radio-group {
+    display: flex;
+    flex-wrap: wrap; /* Pour que les boutons s'enroulent sur plusieurs lignes si nécessaire */
+    gap: 10px; /* Espace entre les boutons radio */
+}
+
+label {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Espace entre les étiquettes */
+    font-size: 1.5em; /* Agrandir la taille du texte des boutons radio */
+}
+
+button {
+    background-color: #007BFF;
+    color: white; /* Texte du bouton en blanc */
+    border: none;
+    padding: 15px 30px; /* Augmenter la taille du bouton */
+    border-radius: 5px;
+    cursor: pointer;
+    display: block; /* Afficher comme un bloc pour centrer */
+    margin: 20px auto; /* Centrer horizontalement */
+    font-size: 1.5em; /* Agrandir la taille du texte du bouton */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none;
+}

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prédiction de Champignons</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        select, input { padding: 8px; width: 100%; }
+        button { padding: 10px 15px; }
+        .result { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Prédiction de Champignons</h1>
+    <p>Veuillez sélectionner les options pour chaque caractéristique du champignon.</p>
+    <form id="prediction-form">
+        <div class="form-group">
+            <label for="cap-shape">Cap Shape:</label>
+            <select id="cap-shape" required>
+                <option value="">Sélectionnez une forme</option>
+                <option value="0">Bell</option>
+                <option value="1">Conical</option>
+                <option value="2">Convex</option>
+                <option value="3">Flat</option>
+                <option value="4">Knobbed</option>
+                <option value="5">Sunken</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="cap-surface">Cap Surface:</label>
+            <select id="cap-surface" required>
+                <option value="">Sélectionnez une surface</option>
+                <option value="0">Fibrous</option>
+                <option value="1">Grooves</option>
+                <option value="2">Scaly</option>
+                <option value="3">Smooth</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="cap-color">Cap Color:</label>
+            <select id="cap-color" required>
+                <option value="">Sélectionnez une couleur</option>
+                <option value="0">Brown</option>
+                <option value="1">Buff</option>
+                <option value="2">Cinnamon</option>
+                <option value="3">Gray</option>
+                <option value="4">Green</option>
+                <option value="5">Pink</option>
+                <option value="6">Purple</option>
+                <option value="7">Red</option>
+                <option value="8">White</option>
+                <option value="9">Yellow</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="bruises">Bruises:</label>
+            <select id="bruises" required>
+                <option value="">Avez-vous des ecchymoses?</option>
+                <option value="0">Non</option>
+                <option value="1">Oui</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="odor">Odor:</label>
+            <select id="odor" required>
+                <option value="">Sélectionnez une odeur</option>
+                <option value="0">Almond</option>
+                <option value="1">Anise</option>
+                <option value="2">Creosote</option>
+                <option value="3">Fishy</option>
+                <option value="4">Foul</option>
+                <option value="5">Musty</option>
+                <option value="6">None</option>
+                <option value="7">Pungent</option>
+                <option value="8">Spicy</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="gill-attachment">Gill Attachment:</label>
+            <select id="gill-attachment" required>
+                <option value="">Sélectionnez l'attachement des lamelles</option>
+                <option value="0">Attached</option>
+                <option value="1">Free</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="gill-spacing">Gill Spacing:</label>
+            <select id="gill-spacing" required>
+                <option value="">Sélectionnez l'espacement des lamelles</option>
+                <option value="0">Close</option>
+                <option value="1">Crowded</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="gill-size">Gill Size:</label>
+            <select id="gill-size" required>
+                <option value="">Sélectionnez la taille des lamelles</option>
+                <option value="0">Broad</option>
+                <option value="1">Narrow</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="gill-color">Gill Color:</label>
+            <select id="gill-color" required>
+                <option value="">Sélectionnez une couleur</option>
+                <option value="0">Black</option>
+                <option value="1">Brown</option>
+                <option value="2">Buff</option>
+                <option value="3">Chocolate</option>
+                <option value="4">Gray</option>
+                <option value="5">Green</option>
+                <option value="6">Orange</option>
+                <option value="7">Pink</option>
+                <option value="8">Purple</option>
+                <option value="9">Red</option>
+                <option value="10">White</option>
+                <option value="11">Yellow</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="stalk-shape">Stalk Shape:</label>
+            <select id="stalk-shape" required>
+                <option value="">Sélectionnez la forme du pied</option>
+                <option value="0">Enlarging</option>
+                <option value="1">Tapering</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="stalk-root">Stalk Root:</label>
+            <select id="stalk-root" required>
+                <option value="">Sélectionnez la racine du pied</option>
+                <option value="0">Bulbous</option>
+                <option value="1">Club</option>
+                <option value="2">Cup</option>
+                <option value="3">Flat</option>
+                <option value="4">Other</option>
+                <option value="5">Missing</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="stalk-surface-above-ring">Stalk Surface Above Ring:</label>
+            <select id="stalk-surface-above-ring" required>
+                <option value="">Sélectionnez la surface au-dessus de l'anneau</option>
+                <option value="0">Fibrous</option>
+                <option value="1">Smooth</option>
+                <option value="2">Scaly</option>
+                <option value="3">Grooves</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="stalk-surface-below-ring">Stalk Surface Below Ring:</label>
+            <select id="stalk-surface-below-ring" required>
+                <option value="">Sélectionnez la surface en dessous de l'anneau</option>
+                <option value="0">Fibrous</option>
+                <option value="1">Smooth</option>
+                <option value="2">Scaly</option>
+                <option value="3">Grooves</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="stalk-color-above-ring">Stalk Color Above Ring:</label>
+            <select id="stalk-color-above-ring" required>
+                <option value="">Sélectionnez la couleur au-dessus de l'anneau</option>
+                <option value="0">Brown</option>
+                <option value="1">Buff</option>
+                <option value="2">Cinnamon</option>
+                <option value="3">Gray</option>
+                <option value="4">Green</option>
+                <option value="5">Pink</option>
+                <option value="6">Purple</option>
+                <option value="7">Red</option>
+                <option value="8">White</option>
+                <option value="9">Yellow</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="stalk-color-below-ring">Stalk Color Below Ring:</label>
+            <select id="stalk-color-below-ring" required>
+                <option value="">Sélectionnez la couleur en dessous de l'anneau</option>
+                <option value="0">Brown</option>
+                <option value="1">Buff</option>
+                <option value="2">Cinnamon</option>
+                <option value="3">Gray</option>
+                <option value="4">Green</option>
+                <option value="5">Pink</option>
+                <option value="6">Purple</option>
+                <option value="7">Red</option>
+                <option value="8">White</option>
+                <option value="9">Yellow</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="veil-type">Veil Type:</label>
+            <select id="veil-type" required>
+                <option value="">Sélectionnez le type de voile</option>
+                <option value="0">Partial</option>
+                <option value="1">Universal</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="veil-color">Veil Color:</label>
+            <select id="veil-color" required>
+                <option value="">Sélectionnez une couleur</option>
+                <option value="0">Brown</option>
+                <option value="1">Orange</option>
+                <option value="2">White</option>
+                <option value="3">Yellow</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="ring-number">Ring Number:</label>
+            <select id="ring-number" required>
+                <option value="">Sélectionnez le nombre d'anneaux</option>
+                <option value="0">None</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="ring-type">Ring Type:</label>
+            <select id="ring-type" required>
+                <option value="">Sélectionnez le type d'anneau</option>
+                <option value="0">None</option>
+                <option value="1">Cobwebby</option>
+                <option value="2">Evanescent</option>
+                <option value="3">Flaring</option>
+                <option value="4">Large</option>
+                <option value="5">Pendant</option>
+                <option value="6">Sheathing</option>
+                <option value="7">Zone</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="spore-print-color">Spore Print Color:</label>
+            <select id="spore-print-color" required>
+                <option value="">Sélectionnez une couleur</option>
+                <option value="0">Black</option>
+                <option value="1">Brown</option>
+                <option value="2">Buff</option>
+                <option value="3">Chocolate</option>
+                <option value="4">Green</option>
+                <option value="5">Orange</option>
+                <option value="6">Pink</option>
+                <option value="7">Purple</option>
+                <option value="8">Red</option>
+                <option value="9">White</option>
+                <option value="10">Yellow</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="population">Population:</label>
+            <select id="population" required>
+                <option value="">Sélectionnez une population</option>
+                <option value="0">Abundant</option>
+                <option value="1">Clustered</option>
+                <option value="2">Numerous</option>
+                <option value="3">Scattered</option>
+                <option value="4">Several</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="habitat">Habitat:</label>
+            <select id="habitat" required>
+                <option value="">Sélectionnez un habitat</option>
+                <option value="0">Grasses</option>
+                <option value="1">Leaves</option>
+                <option value="2">Meadows</option>
+                <option value="3">Paths</option>
+                <option value="4">Urban</option>
+                <option value="5">Waste</option>
+                <option value="6">Woods</option>
+            </select>
+        </div>
+        <button type="submit">Faire une Prédiction</button>
+    </form>
+    <div class="result" id="result"></div>
+
+    <script>
+        document.getElementById('prediction-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const formData = {
+                "cap-shape_encoded": parseInt(document.getElementById('cap-shape').value),
+                "cap-surface_encoded": parseInt(document.getElementById('cap-surface').value),
+                "cap-color_encoded": parseInt(document.getElementById('cap-color').value),
+                "bruises_encoded": parseInt(document.getElementById('bruises').value),
+                "odor_encoded": parseInt(document.getElementById('odor').value),
+                "gill-attachment_encoded": parseInt(document.getElementById('gill-attachment').value),
+                "gill-spacing_encoded": parseInt(document.getElementById('gill-spacing').value),
+                "gill-size_encoded": parseInt(document.getElementById('gill-size').value),
+                "gill-color_encoded": parseInt(document.getElementById('gill-color').value),
+                "stalk-shape_encoded": parseInt(document.getElementById('stalk-shape').value),
+                "stalk-root_encoded": parseInt(document.getElementById('stalk-root').value),
+                "stalk-surface-above-ring_encoded": parseInt(document.getElementById('stalk-surface-above-ring').value),
+                "stalk-surface-below-ring_encoded": parseInt(document.getElementById('stalk-surface-below-ring').value),
+                "stalk-color-above-ring_encoded": parseInt(document.getElementById('stalk-color-above-ring').value),
+                "stalk-color-below-ring_encoded": parseInt(document.getElementById('stalk-color-below-ring').value),
+                "veil-type_encoded": parseInt(document.getElementById('veil-type').value),
+                "veil-color_encoded": parseInt(document.getElementById('veil-color').value),
+                "ring-number_encoded": parseInt(document.getElementById('ring-number').value),
+                "ring-type_encoded": parseInt(document.getElementById('ring-type').value),
+                "spore-print-color_encoded": parseInt(document.getElementById('spore-print-color').value),
+                "population_encoded": parseInt(document.getElementById('population').value),
+                "habitat_encoded": parseInt(document.getElementById('habitat').value)
+            };
+
+            try {
+                const response = await fetch('http://localhost:5000/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify([formData]),
+                });
+
+                const result = await response.json();
+                const resultDiv = document.getElementById('result');
+
+                if (response.ok) {
+                    resultDiv.innerHTML = `<h2>Prédiction : ${result.predictions[0] === 1 ? "Comestible" : "Toxique"}</h2>`;
+                } else {
+                    resultDiv.innerHTML = `<h2>Erreur : ${result.error}</h2>`;
+                }
+            } catch (error) {
+                document.getElementById('result').innerHTML = `<h2>Erreur de connexion</h2>`;
+            }
+        });
+    </script>
+</body>
+</html>

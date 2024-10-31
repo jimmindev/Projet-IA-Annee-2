@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prédiction d'Arbre de Décision</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Prédiction d'Arbre de Décision</h1>
+        <form id="prediction-form">
+            <div class="form-group">
+                <label for="cap-shape_encoded">Cap Shape:</label>
+                <input type="number" id="cap-shape_encoded" required>
+            </div>
+            <div class="form-group">
+                <label for="cap-surface_encoded">Cap Surface:</label>
+                <input type="number" id="cap-surface_encoded" required>
+            </div>
+            <div class="form-group">
+                <label for="cap-color_encoded">Cap Color:</label>
+                <input type="number" id="cap-color_encoded" required>
+            </div>
+            <div class="form-group">
+                <label for="bruises_encoded">Bruises:</label>
+                <input type="number" id="bruises_encoded" required>
+            </div>
+            <div class="form-group">
+                <label for="odor_encoded">Odor:</label>
+                <input type="number" id="odor_encoded" required>
+            </div>
+            <div class="form-group">
+                <label for="gill-attachment_encoded">Gill Attachment:</label>
+                <input type="number" id="gill-attachment_encoded" required>
+            </div>
+            <div class="form-group">
+                <label for="gill-spacing_encoded">Gill Spacing:</label>
+                <input type="number" id="gill-spacing_encoded" required>
+            </div>
+            <div class="form-group">
+                <label for="gill-size_encoded">Gill Size:</label>
+                <input type="number" id="gill-size_encoded" required>
+            </div>
+            <div class="form-group">
+                <label for="gill-color_encoded">Gill Color:</label>
+                <input type="number" id="gill-color_encoded" required>
+            </div>
+            <div class="form-group">
+                <label for="stalk-shape_encoded">Stalk Shape:</label>
+                <input type="number" id="stalk-shape_encoded" required>
+            </div>
+            <div class="form-group">
+                <label for="stalk-root_encoded">Stalk Root:</label>
+                <input type="number" id="stalk-root_encoded" required>
+            </div>
+            <div class="form-group">
+                <label for="stalk-surface-above-ring_encoded">Stalk Surface Above Ring:</label>
+                <input type="number" id="stalk-surface-above-ring_encoded" required>
+            </div>
+            <div class="form-group">
+                <label for="stalk-surface-below-ring_encoded">Stalk Surface Below Ring:</label>
+                <input type="number" id="stalk-surface-below-ring_encoded" required>
+            </div>
+            <div class="form-group">
+                <label for="stalk-color-above-ring_encoded">Stalk Color Above Ring:</label>
+                <input type="number" id="stalk-color-above-ring_encoded" required>
+            </div>
+            <div class="form-group">
+                <label for="stalk-color-below-ring_encoded">Stalk Color Below Ring:</label>
+                <input type="number" id="stalk-color-below-ring_encoded" required>
+            </div>
+            <div class="form-group">
+                <label for="veil-type_encoded">Veil Type:</label>
+                <input type="number" id="veil-type_encoded" required>
+            </div>
+            <div class="form-group">
+                <label for="veil-color_encoded">Veil Color:</label>
+                <input type="number" id="veil-color_encoded" required>
+            </div>
+            <div class="form-group">
+                <label for="ring-number_encoded">Ring Number:</label>
+                <input type="number" id="ring-number_encoded" required>
+            </div>
+            <div class="form-group">
+                <label for="ring-type_encoded">Ring Type:</label>
+                <input type="number" id="ring-type_encoded" required>
+            </div>
+            <div class="form-group">
+                <label for="spore-print-color_encoded">Spore Print Color:</label>
+                <input type="number" id="spore-print-color_encoded" required>
+            </div>
+            <div class="form-group">
+                <label for="population_encoded">Population:</label>
+                <input type="number" id="population_encoded" required>
+            </div>
+            <div class="form-group">
+                <label for="habitat_encoded">Habitat:</label>
+                <input type="number" id="habitat_encoded" required>
+            </div>
+            <button type="submit">Prédire</button>
+        </form>
+        <h2 id="result"></h2>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
